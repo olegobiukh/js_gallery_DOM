@@ -9,10 +9,9 @@ document.getElementById('thumbs').addEventListener('click', function (e) {
 
   if (!thumbnail) {
     return;
-  } // Click was outside a thumbnail
+  }
 
   const link = thumbnail.querySelector('.list-item__link');
 
   largeImg.src = link.href;
-  // ... update main image logic ...
 });
