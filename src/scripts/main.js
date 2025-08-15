@@ -2,18 +2,17 @@
 
 const largeImg = document.getElementById('largeImg');
 
-document.querySelectorAll('.gallery__list').forEach((item) => {
-  item.style.display = 'flex';
-  item.style.flexWrap = 'wrap';
-});
+document.getElementById('thumbs').addEventListener('click', function (e) {
+  e.preventDefault();
 
-document.querySelectorAll('.list-item').forEach((item) => {
-  // eslint-disable-next-line no-shadow
-  item.onclick = (event) => {
-    event.preventDefault();
+  const thumbnail = e.target.closest('.list-item');
 
-    const link = item.querySelector('.list-item__link');
+  if (!thumbnail) {
+    return;
+  } // Click was outside a thumbnail
 
-    largeImg.src = link.href;
-  };
+  const link = thumbnail.querySelector('.list-item__link');
+
+  largeImg.src = link.href;
+  // ... update main image logic ...
 });
